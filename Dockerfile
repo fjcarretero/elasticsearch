@@ -13,6 +13,8 @@ RUN cd /opt \
 	&& tar xvfz elasticsearch-1.4.0.tar.gz \
 	&& rm elasticsearch-1.4.0.tar.gz 
 
+
+
 RUN mkdir /opt/elasticsearch-1.4.0/data
 
 WORKDIR /opt/elasticsearch-1.4.0/data
@@ -28,8 +30,7 @@ COPY elasticsearch.yml /opt/elasticsearch-1.4.0/config/
 RUN chown -R elasticsearch:elasticsearch /opt/elasticsearch-1.4.0 \
 && chmod -R +w /opt/elasticsearch-1.4.0
 
-USER 1000
-
 EXPOSE 9200 9300
 
-ENTRYPOINT ["/opt/elasticsearch-1.4.0/bin/elasticsearch"]
+#ENTRYPOINT ["/opt/elasticsearch-1.4.0/bin/elasticsearch"]
+ENTRYPOINT ["ls", "-lR", "/opt/elasticsearch-1.4.0/data"]
