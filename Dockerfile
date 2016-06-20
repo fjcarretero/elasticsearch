@@ -25,8 +25,6 @@ COPY elasticsearch.yml /opt/elasticsearch-1.4.0/config/
 
 USER elasticsearch
 
-ENV PATH=$PATH:/opt/elasticsearch-1.4.0/bin
-
-CMD ["elasticsearch"]
-
 EXPOSE 9200 9300
+
+ENTRYPOINT ["/opt/elasticsearch-1.4.0/bin/elasticsearch"]
