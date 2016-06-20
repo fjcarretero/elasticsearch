@@ -13,7 +13,9 @@ RUN cd /opt \
 	&& tar xvfz elasticsearch-1.4.0.tar.gz \
 	&& rm elasticsearch-1.4.0.tar.gz 
 
-WORKDIR /opt/elasticsearch-1.4.0
+RUN mkdir /opt/elasticsearch-1.4.0/data
+
+WORKDIR /opt/elasticsearch-1.4.0/data
 
 RUN set -ex && for path in data logs config config/scripts; do \
         mkdir -p "$path"; \
