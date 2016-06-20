@@ -15,7 +15,8 @@ RUN cd /opt \
 
 
 
-RUN mkdir /opt/elasticsearch-1.4.0/data
+RUN mkdir /opt/elasticsearch-1.4.0/data \
+&& chmod -R 777 /opt/elasticsearch-1.4.0/data
 
 WORKDIR /opt/elasticsearch-1.4.0
 
@@ -33,6 +34,8 @@ RUN chown elasticsearch:elasticsearch /start.sh \
 
 RUN chown -R elasticsearch:elasticsearch /opt/elasticsearch-1.4.0 \
 && chmod -R +w /opt/elasticsearch-1.4.0
+
+USER elasticsearch
 
 EXPOSE 9200 9300
 
