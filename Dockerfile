@@ -23,6 +23,8 @@ RUN set -ex && for path in data logs config config/scripts; do \
 COPY logging.yml /opt/elasticsearch-1.4.0/config/
 COPY elasticsearch.yml /opt/elasticsearch-1.4.0/config/
 
+RUN chown elasticsearch:elasticsearch /opt/elasticsearch-1.4.0
+
 USER elasticsearch
 
 EXPOSE 9200 9300
