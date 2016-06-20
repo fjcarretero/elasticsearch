@@ -17,7 +17,7 @@ RUN cd /opt \
 
 RUN mkdir /opt/elasticsearch-1.4.0/data
 
-WORKDIR /opt/elasticsearch-1.4.0/data
+WORKDIR /opt/elasticsearch-1.4.0
 
 RUN set -ex && for path in data logs config config/scripts; do \
         mkdir -p "$path"; \
