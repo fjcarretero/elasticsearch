@@ -25,7 +25,7 @@ COPY elasticsearch.yml /opt/elasticsearch-1.4.0/config/
 
 USER elasticsearch
 
-ENV PATH=$PATH:/opt/elasticsearch/bin
+ENV PATH=$PATH:/opt/elasticsearch-1.4.0/bin
 
 CMD ["elasticsearch"]
 
