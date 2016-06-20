@@ -6,7 +6,7 @@ RUN cd /tmp \
 && rpm -i /tmp/jdk-7u79-linux-x64.rpm \
 && rm -f /tmp/jdk-7u79-linux-x64.rpm
 
-RUN groupadd -g 1000 elasticsearch && useradd elasticsearch -u 1000 -g 1000
+RUN groupadd -g 1000 elasticsearch && useradd elasticsearch -u 1000 -g 1000 && usermod -u 1000 elasticsearch
 
 RUN cd /opt \
 	&& curl -LO -x ${https_proxy} https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.4.0.tar.gz \
@@ -28,9 +28,7 @@ COPY elasticsearch.yml /opt/elasticsearch-1.4.0/config/
 RUN chown -R elasticsearch:elasticsearch /opt/elasticsearch-1.4.0 \
 && chmod -R +w /opt/elasticsearch-1.4.0
 
-RUN usermod -u 1000 elasticsearch
-
-USER elasticsearch
+USER 1000
 
 EXPOSE 9200 9300
 
