@@ -37,4 +37,4 @@ RUN chown -R elasticsearch:elasticsearch /opt/elasticsearch-1.4.0 \
 EXPOSE 9200 9300
 
 #ENTRYPOINT ["/opt/elasticsearch-1.4.0/bin/elasticsearch"]
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["/start.sh"]
