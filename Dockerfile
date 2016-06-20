@@ -26,10 +26,10 @@ RUN set -ex && for path in data logs config config/scripts; do \
 
 COPY logging.yml /opt/elasticsearch-1.4.0/config/
 COPY elasticsearch.yml /opt/elasticsearch-1.4.0/config/
-COPY start.sh /
+COPY start.sh /start.sh
 
-RUN chown elasticsearch:elasticsearch start.sh \
-&& chmod +x start.sh
+RUN chown elasticsearch:elasticsearch /start.sh \
+&& chmod +x /start.sh
 
 RUN chown -R elasticsearch:elasticsearch /opt/elasticsearch-1.4.0 \
 && chmod -R +w /opt/elasticsearch-1.4.0
